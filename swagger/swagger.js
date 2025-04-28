@@ -24,7 +24,9 @@ const options={
           },
         servers:[
             {
-                url:`http://localhost:${port}`
+                url: process.env.NODE_ENV === "production"
+                ? "https://shopsphere-ecommerce-backend.onrender.com/"
+                : `http://localhost:${port}`
             }
         ]
     },
