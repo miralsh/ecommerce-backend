@@ -38,7 +38,10 @@
                       Product by Category
                     </div>
                     <div class="col border-start">
-                        <a href="https://shopsphere-ecommerce-backend.onrender.com/products/category/beauty">https://shopsphere-ecommerce-backend.onrender.com/products/category/{category}</a>
+                        <div>
+                        <a id="categoryLink" href=`https://shopsphere-ecommerce-backend.onrender.com/products/category/${}`>https://shopsphere-ecommerce-backend.onrender.com/products/category/{category}</a>
+                            <input placeholder="Enter Category" value="" oninput="handleInput(this.value)">
+                    </div>
                     </div>
                     </div>
                     <div class="row border-top">
@@ -69,4 +72,18 @@
           </div>
           
 </body>
+<script>
+  function handleInput(value) {
+      const link = document.getElementById("categoryLink");
+      const encodedCategory = encodeURIComponent(value.trim()); // optional, for URL safety
+
+      if (value.trim()) {
+        link.href = `https://shopsphere-ecommerce-backend.onrender.com/products/category/${encodedCategory}`;
+        link.textContent = `https://shopsphere-ecommerce-backend.onrender.com/products/category/${encodedCategory}`;
+      } else {
+        link.href = "https://shopsphere-ecommerce-backend.onrender.com/products/category/";
+        link.textContent = "https://shopsphere-ecommerce-backend.onrender.com/products/category/";
+      }
+    }
+  </script>
 </html>
